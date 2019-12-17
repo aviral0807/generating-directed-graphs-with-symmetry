@@ -9,6 +9,7 @@ This is a project to generate directed graphs with prescribed equitable partitio
 2 1
 1 2         #Y-matrix
 3 1
+2
 ```
 2. Run command `./run.sh`
 3. Check the output in `output.txt`
