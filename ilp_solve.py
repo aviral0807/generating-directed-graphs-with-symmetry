@@ -4,7 +4,7 @@ import random
 import numpy.linalg as npl
 import sys
 
-SCALE = 2
+SCALE = 1
 
 def main():
 
@@ -35,13 +35,16 @@ def main():
 				A[x][j] = -Z[j][i]
 				x+=1
 
+	
+
 	for i in range(0,no_partitions):
 		mx = Q[i][i]+1
 		for j in range(no_partitions):
 				mx = max(mx,Q[j][i])
-				mx = max(mx, Z[i][j])
+				mx = max(mx, Z[j][i])
 		N_L[i] = mx
 
+	
 	is_fesiable = True
 	if(npl.matrix_rank(A)==no_partitions):
 		is_fesiable = False
@@ -64,14 +67,15 @@ def main():
 	prob.solve()
 
 	N_ans = np.array(np.round_(N.value), dtype=int).T
-        
-	gcd = np.gcd.reduce(N_ans)
+
+	gcd = np.gcd.reduce(N_ans[0])
 
 	N_ans = np.true_divide(N_ans, gcd)
+
 	scale = np.ceil(np.amax(np.divide(N_L.T[0], N_ans)))
 
 	N_ans = N_ans*scale*SCALE
-	print(N_ans[0])
+	print(N_ans)
 	fp  = open('temp.txt', 'a')
 	fp.write('\n')
 	for i in N_ans[0]:
