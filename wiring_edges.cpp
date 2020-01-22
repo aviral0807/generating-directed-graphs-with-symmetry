@@ -27,7 +27,7 @@ using namespace std;
 
 #define N  1005
 
-int p, n[N], q[N][N], z[N][N], v[N], no_nodes, adj[N][N];
+int scale, p, n[N], q[N][N], z[N][N], v[N], no_nodes, adj[N][N];
 
 vi generate_b(int m, int h)
 {
@@ -48,6 +48,7 @@ void input()
 	cin >> p;
 	rep(i,0,p) rep(j,0,p) cin >> q[i][j];
 	rep(i,0,p) rep(j,0,p) cin >> z[i][j];
+	cin >> scale;
 	rep(i,0,p) cin >> n[i];	
 }
 

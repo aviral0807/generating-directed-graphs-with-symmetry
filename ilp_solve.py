@@ -4,7 +4,6 @@ import random
 import numpy.linalg as npl
 import sys
 
-SCALE = 1
 
 def main():
 
@@ -19,6 +18,8 @@ def main():
 	Z = np.zeros((no_partitions, no_partitions), dtype=int)
 	for i in range(no_partitions):
 		Z[i] = np.array(list(map(int, fp.readline().split())))
+
+	SCALE = int(fp.readline())
 
 	fp.close()
 
